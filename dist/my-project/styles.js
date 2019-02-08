@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ashleyzhao/my-project/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /Users/ashleyzhao/Documents/GitHub/cs5610/src/styles.css */"./src/styles.css");
 
 
 /***/ })
