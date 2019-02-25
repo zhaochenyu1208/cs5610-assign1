@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-start mb-3  p-0">
+  <div class="row container-fluid">
+    <div class="col-sm-4 d-none d-sm-block">
+      <div class="container-fluid">
+        <div class="navbar-brand navbar-dark">
+          <a routerLink="../" class="float-left text-white">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="text-white-bold" routerLink="../">
+            Websites
+          </a>
+
+        </div>
+        <a routerLink="./" class="icon-padding float-right text-white">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white-bold" routerLink="./">
+          New Websites
+        </a>
+        <a routerLink="../" class="icon-padding float-right text-white">
+          <i class="fas fa-check"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid container-align">
+  <div class="row">
+    <div class="col-sm-4 d-none d-sm-block">
+      <div class="form-control" *ngFor="let website of websites">
+        <a [routerLink]="['../', website._id, 'page']" class="text-blue">{{ website.name }}</a>
+        <a [routerLink]="['../', website._id]" class="text-blue float-right">
+          <i class="fas fa-cog"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="websiteName">Name</label>
+          <input
+            type="text"
+            name="websiteName"
+            class="form-control"
+            id="websiteName"
+            [(ngModel)]="newWebsiteName"
+            required
+            #name="ngModel">
+          <span
+            class="help-block"
+            *ngIf="!name.valid && name.touched">
+            Please enter a valid website name
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="websiteDescription">Description</label>
+          <textarea
+            id="websiteDescription"
+            name="websiteDescription"
+            class="form-control"
+            rows="5"
+            [(ngModel)]="newWebsiteDescription"></textarea>
+        </div>
+        <button
+          class="btn btn-primary btn-block"
+          type="submit"
+          [disabled]="!f.valid">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar fixed-bottom bg-primary navbar-dark justify-content-end">
+  <div class="container-fluid">
+    <div class="ml-auto">
+      <a [routerLink]="['/user', userId]" class="text-white float-right">
+        <i class="fas fa-user"></i>
+      </a>
+    </div>
+  </div>
+</nav>

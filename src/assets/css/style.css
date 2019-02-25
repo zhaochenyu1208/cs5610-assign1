@@ -1,0 +1,69 @@
+a:hover {
+  text-decoration: none;
+}
+
+.container-align {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.bc-blue {
+  background-color: #337ab7;
+}
+
+.bc-grey {
+  background-color: #d3d3d354;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-blue {
+  color: #337ab7;
+}
+
+.text-grey {
+  color: grey;
+  font-weight: bold;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-white-bold {
+  color: white;
+  font-weight: bold;
+}
+
+i {
+  padding: 3px;
+}
+
+.vertical-line {
+  border-left: 1px solid lightgrey;
+}
+
+.cl-list-item-borderless {
+  border-top: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+  border-right: 0 none;
+}
+
+.icon-padding {
+  padding-top: 8px;
+}
+
+
+

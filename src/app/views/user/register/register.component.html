@@ -1,0 +1,68 @@
+<div class="container">
+  <h1>Register</h1>
+
+  <!--Register Form-->
+  <form
+    (ngSubmit)="onRegister()"
+    #form='ngForm'>
+    <div class="form-group">
+      <input
+        class="form-control"
+        placeholder="username"
+        type="text"
+        name="username"
+        required
+        [(ngModel)]="registerUsername"
+        #username="ngModel">
+      <span
+        class="help-block"
+        *ngIf="!username.valid && username.touched">
+        Please enter a valid username
+      </span>
+    </div>
+
+    <div class="form-group">
+      <input
+        class="form-control"
+        placeholder="password"
+        type="password"
+        name="password"
+        required
+        [(ngModel)]="registerPassword"
+        #password="ngModel">
+      <span
+        class="help-block"
+        *ngIf="!password.valid && password.touched">
+        Please enter a valid password
+      </span>
+    </div>
+
+    <div class="form-group">
+      <input
+        class="form-control"
+        placeholder="verify password"
+        type="password"
+        name="verifiedPassword"
+        required
+        [(ngModel)]="registerVerifiedPassword"
+        #verifiedPassword="ngModel">
+      <span
+        class="help-block"
+        *ngIf="(registerPassword !== registerVerifiedPassword || !verifiedPassword.valid) && verifiedPassword.touched">
+        Please enter the same password
+      </span>
+    </div>
+
+    <div class="form-group">
+      <button
+        class="btn btn-primary btn-block"
+        type="submit"
+        [disabled]="!form.valid || registerPassword !== registerVerifiedPassword">
+        Register
+      </button>
+    </div>
+    <div class="form-group">
+      <a class="btn btn-danger btn-block" (click)="onCancel()">Cancel</a>
+    </div>
+  </form>
+</div>

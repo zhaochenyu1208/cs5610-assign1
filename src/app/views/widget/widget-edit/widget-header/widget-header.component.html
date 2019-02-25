@@ -1,0 +1,59 @@
+<nav class="navbar fixed-top bg-primary">
+  <div class="container-fluid">
+    <div class="navbar-brand navbar-light">
+      <a routerLink="../" class="float-left text-white">
+        <i class="fas fa-chevron-left"></i>
+      </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a routerLink="./" class="text-white">
+        Widget Edit
+      </a>
+    </div>
+    <a (click)="onEditWidget()" style="cursor: pointer" class="text-white">
+      <i class="fas fa-check"></i>
+    </a>
+  </div>
+</nav>
+
+<div class="container">
+  <form>
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="widgetName"
+        placeholder="{{ widget.name }}"
+        [(ngModel)]="newWidgetName">
+    </div>
+    <div class="form-group">
+      <label>Text</label>
+      <input
+        type="text"
+        class="form-control"
+        name="widgetText"
+        placeholder="{{ widget.text }}"
+        [(ngModel)]="newWidgetText">
+    </div>
+    <div class="form-group">
+      <label>Size</label>
+      <input
+        type="number"
+        class="form-control"
+        name="widgetSize"
+        placeholder="{{ widget.size }}"
+        [(ngModel)]="newWidgetSize">
+    </div>
+    <button *ngIf="editFlag" class="btn btn-danger btn-block" (click)="onDelete()">Delete</button>
+  </form>
+</div>
+
+<nav class="navbar fixed-bottom bg-primary">
+  <div class="container-fluid">
+    <div class="ml-auto">
+      <a [routerLink]="['/user', userId]" class="text-white float-right">
+        <i class="fas fa-user"></i>
+      </a>
+    </div>
+  </div>
+</nav>

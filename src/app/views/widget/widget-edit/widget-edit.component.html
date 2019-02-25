@@ -1,0 +1,33 @@
+<div *ngIf="widget !== undefined" [ngSwitch]="widget.widgetType">
+  <div *ngSwitchCase="'HEADING'">
+    <app-widget-header></app-widget-header>
+  </div>
+  <div *ngSwitchCase="'IMAGE'">
+    <app-widget-image></app-widget-image>
+  </div>
+  <div *ngSwitchCase="'YOUTUBE'">
+    <app-widget-youtube></app-widget-youtube>
+  </div>
+  <div *ngSwitchDefault>
+    <h1>This Widget Type is not DEFINED in assignment</h1>
+    <hr>
+    <button routerLink="../">Back</button>
+  </div>
+</div>
+
+<div *ngIf="widget === undefined" [ngSwitch]="widgetChosen">
+  <div *ngSwitchCase="'Header'">
+    <app-widget-header></app-widget-header>
+  </div>
+  <div *ngSwitchCase="'Image'">
+    <app-widget-image></app-widget-image>
+  </div>
+  <div *ngSwitchCase="'YouTube'">
+    <app-widget-youtube></app-widget-youtube>
+  </div>
+  <div *ngSwitchDefault>
+    <h1>This Widget Type is not DEFINED in assignment</h1>
+    <hr>
+    <button routerLink="../new">Back</button>
+  </div>
+</div>

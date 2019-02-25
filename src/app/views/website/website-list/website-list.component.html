@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-start mb-2">
+  <div class="container-fluid">
+    <div class="navbar-brand navbar-dark">
+      <a routerLink="../" class="nav-item nav-link turnwhite"><i class="fas fa-chevron-left"></i></a>
+      <a routerLink="./" class="navbar-brand">Websites</a>
+    </div>
+    <a routerLink="./new" class="av-item nav-link ml-auto text-white"><i class="fas fa-plus turnwhite"></i></a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="form-control" *ngFor="let website of websites">
+      <a [routerLink]="['./', website._id, 'page']">{{ website.name }}</a>
+      <a [routerLink]="['./', website._id]" class="text-blue float-right"><i class="fas fa-cog turnwhite"></i></a>
+  </div>
+</div>
+
+<nav class="navbar fixed-bottom bg-primary navbar-dark justify-content-end">
+  <div class="container-fluid">
+    <div class="ml-auto">
+      <a [routerLink]="['/user', userId]" class="text-white float-right">
+        <i class="fas fa-user turnwhite"></i>
+      </a>
+    </div>
+  </div>
+</nav>

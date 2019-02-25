@@ -1,0 +1,59 @@
+<nav class="navbar fixed-top bg-primary">
+  <div class="container-fluid">
+    <div class="navbar-brand navbar-light">
+      <a routerLink="../../" class="float-left text-white">
+        <i class="fas fa-chevron-left"></i>
+      </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a routerLink="./" class="text-white">
+        Widgets
+      </a>
+    </div>
+    <a routerLink="new" class="text-white">
+      <i class="fas fa-plus"></i>
+    </a>
+
+  </div>
+</nav>
+
+<div class="container">
+  <div *ngFor="let widget of widgets" [ngSwitch]="widget.widgetType">
+    <a routerLink="./" class="float-right text-black">
+      <i class="fas fa-bars"></i>
+    </a>
+    <a routerLink="{{ widget._id }}" class="float-right text-blue">
+      <i class="fas fa-cog"></i>
+    </a>
+    <div *ngSwitchCase="'HEADING'" [ngSwitch]="widget.size">
+      <h1 *ngSwitchCase="1">{{ widget.text }}</h1>
+      <h2 *ngSwitchCase="2">{{ widget.text }}</h2>
+      <h3 *ngSwitchCase="3">{{ widget.text }}</h3>
+      <h4 *ngSwitchCase="4">{{ widget.text }}</h4>
+      <h5 *ngSwitchCase="5">{{ widget.text }}</h5>
+      <h3 *ngSwitchDefault>{{ widget.text }}</h3>
+    </div>
+    <img *ngSwitchCase="'IMAGE'" src="{{ widget.url }}" alt="">
+    <iframe *ngSwitchCase="'YOUTUBE'" width="420" height="315" [src]="widget.url | safe"></iframe>
+    <div *ngSwitchCase="'HTML'" [innerHTML]="widget.text"></div>
+    <p *ngSwitchDefault><br><br></p>
+  </div>
+</div>
+
+<nav class="navbar fixed-bottom bg-primary">
+  <div class="container-fluid">
+    <div class="">
+      <a routerLink="./" class="text-white">
+        <i class="fas fa-play"></i>
+      </a>
+      &nbsp;&nbsp;
+      <a routerLink="./" class="text-white">
+        <i class="fas fa-eye"></i>
+      </a>
+    </div>
+    <div class="ml-auto">
+      <a [routerLink]="['/user', userId]" class="text-white float-right">
+        <i class="fas fa-user"></i>
+      </a>
+    </div>
+  </div>
+</nav>
