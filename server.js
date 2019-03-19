@@ -1,5 +1,3 @@
-// Get the dependencies
-
 const express = require('express');
 const path = require('path');
 const http = require('http');
@@ -23,9 +21,9 @@ app.use(function(req, res, next) {
 const port = process.env.PORT || '3200';
 app.set('port', port);
 
-
+require('./assignment/app')(app);
 // Create HTTP server
 const server = http.createServer(app);
-server.listen( port , () => console.log('Running on port 3200'));
+server.listen( port, () => console.log('Running on port', app.get('port')));
 
 //require('./assignment/app')(app);
